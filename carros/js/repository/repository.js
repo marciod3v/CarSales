@@ -41,6 +41,34 @@ async function getCarroByName(name) {
     }
 }
 
+async function criarCarro(veiculo) {
+    try {
+        const response = await fetch("http://localhost:50622/api/postcarros",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(veiculo)
+        });
+    
+        if (await response.ok) {
+    
+            const successModal = new bootstrap.Modal(document.getElementById('mainmodal'));
+    
+            successModal.show();
+    
+            document.querySelector("form").reset();
+        }else{
+            alert("Erro ao cadastrar veículo." + response.status);
+    
+        }
+    
+    } catch (error) {
+        console.error("Erro na requisição:", error);
+        alert("Erro ao conectar com a API.");
+    }
+}
+
 async function editarCarro(Id,Nome,Valor) {
 
    carro = {

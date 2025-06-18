@@ -71,20 +71,116 @@
                 </div>
 
             </form>
+            <div id="mainmodal" class="modal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div id="modalheader" class="modal-header bg-success">
+                            <h5 id="modaltitle" class="modal-title text-light fw-bold ">Sucesso</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p id="modaltext" class="fw-bold">Veículo registrado em nossa base de dados.</p>
+                        </div>
+                        <div id="modalfooter" class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Alterar dados do cadastro:</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="col-md-8 col-lg-8 mb-3  mx-md-auto">
+                                    <label class="form-label fw-bold">Código do Departamento</label>
+                                    <input id="codigoDepartamentoInputModal" class="form-control" type="number">
+                                </div>
+                                <div class="col-md-8 col-lg-8 mb-3  mx-md-auto">
+                                    <label class="form-label fw-bold">Primeiro Nome</label>
+                                    <input id="primeiroNomeInputModal" class="form-control" type="text">
+                                </div>
+                                <div class="col-md-8 col-lg-8 mb-3  mx-md-auto">
+                                    <label class="form-label fw-bold">Segundo Nome</label>
+                                    <input id="segundoNomeInputModal" class="form-control" type="text">
+                                </div>
+                                <div class="col-md-8 col-lg-8 mb-3  mx-md-auto">
+                                    <label class="form-label fw-bold">Ultimo Nome</label>
+                                    <input id="ultimoNomeInputModal" class="form-control" type="text">
+                                </div>
+                                <div class="col-md-8 col-lg-8 mb-3  mx-md-auto">
+                                    <label class="form-label fw-bold">Data de Nascimento</label>
+                                    <input id="dataNascimentoInputModal" class="form-control" type="date">
+                                </div>
+                                <div class="col-md-8 col-lg-8 mb-3  mx-md-auto">
+                                    <label class="form-label fw-bold">CPF</label>
+                                    <input id="CPFInputModal" class="form-control" maxlength="14"
+                                        placeholder="___.___.___-__" type="text">
+                                </div>
+                                <div class="col-md-8 col-lg-8 mb-3  mx-md-auto">
+                                    <label class="form-label fw-bold">RG</label>
+                                    <input id="RGInputModal" class="form-control" type="text" maxlength="12"
+                                        placeholder="__.___.___-_">
+                                </div>
+                                <div class="col-md-8 col-lg-8 mb-3  mx-md-auto">
+                                    <label class="form-label fw-bold">Endereço</label>
+                                    <input id="enderecoInputModal" class="form-control" type="text">
+                                </div>
+                                <div class="col-md-8 col-lg-8 mb-3  mx-md-auto">
+                                    <label class="form-label fw-bold">CEP</label>
+                                    <input id="CEPInputModal" class="form-control" type="text" placeholder="_____-___">
+                                </div>
+                                <div class="col-md-8 col-lg-8 mb-3  mx-md-auto">
+                                    <label class="form-label fw-bold">Cidade</label>
+                                    <input id="cidadeInputModal" class="form-control" type="text">
+                                </div>
+                                <div class="col-md-8 col-lg-8 mb-3  mx-md-auto">
+                                    <label class="form-label fw-bold">Telefone</label>
+                                    <input id="telefoneInputModal" type="text" class="form-control" maxlength="14"
+                                        placeholder="(__)_____-_____">
+                                </div>
+                                <div class="col-md-8 col-lg-8 mb-3  mx-md-auto">
+                                    <label for="recipient-name" class="col-form-label">Função</label>
+                                    <input id="funcaoInputModal" class="form-control" type="text">
+                                </div>
+                                <div class="col-md-8 col-lg-8 mb-3  mx-md-auto">
+                                    <label class="form-label fw-bold">Sálario</label>
+                                    <input id="salarioInputModal" class="form-control" type="number">
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            <button id="btnSalvar" type="button" class="btn btn-primary">Salvar alterações</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-12">
                 <h2 class="text-center">Lista de Funcionários</h2>
                 <table class="table table-striped">
                     <thead>
                         <th scope="col">ID</th>
-                        <th scope="col">Nome</th>
+                        <th scope="col">Código de Departamento</th>
+                        <th scope="col">Primeiro Nome</th>
+                        <th scope="col">Segundo Nome</th>
+                        <th scope="col">Ultimo Nome</th>
+                        <th scope="col">Data de Nascimento</th>
+                        <th scope="col">CPF</th>
+                        <th scope="col">RG</th>
+                        <th scope="col">Endereço</th>
+                        <th scope="col">CEP</th>
+                        <th scope="col">Cidade</th>
+                        <th scope="col">Telefone</th>
+                        <th scope="col">Salario</th>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
+                    <tbody id="tabelaFuncionarios">
+
                     </tbody>
                 </table>
             </div>
@@ -103,5 +199,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
     crossorigin="anonymous"></script>
+<script src="../utils/utils.js"></script>
+<script src="js/repository/repository.js"></script>
+<script src="js/index.js"></script>
 
 </html>
