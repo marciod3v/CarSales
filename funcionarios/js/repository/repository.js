@@ -33,6 +33,25 @@ async function getFuncionarioById(id) {
     }
 }
 
+async function getFuncionarioByName(nome) {
+    
+    try {
+        const response = await fetch (`http://localhost:50622/api/getFuncionariosByName/${nome}`);
+        const func = await response.json();
+
+        return func;
+
+    } catch (error) {
+        console.error("ERRO");
+    }
+}
+
+async function getFuncionarioByCPF(cpf) {
+    const funcionarios = await getAllFuncionarios();
+
+    return funcionarios.find(f => f.CPF === cpf);
+}
+
 async function criarFunc(codigoDepartamento,primeiroNome,segundoNome,ultimoNome,dataNascimento,cpf,rg,endereco,cep,cidade,telefone,funcao,salario) {
     
     const funcionario = {

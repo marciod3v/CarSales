@@ -1,4 +1,8 @@
 let IdAtual = null;
+
+const cpfInput = document.getElementById("CPFInputPesquisar");
+Inputmask("999.999.999-99").mask(cpfInput);
+
 const modalEdit = new bootstrap.Modal(document.getElementById("modalEdit"));
  
  function preencherTabelaFunc(funcionarios) {
@@ -91,6 +95,40 @@ const modalEdit = new bootstrap.Modal(document.getElementById("modalEdit"));
         getAllFuncionarios();
         modalEdit.hide();
     });
+
+    document.getElementById("btnPesquisar").addEventListener("click",async function () {
+        var nome = document.getElementById("nomeInputPesquisar").value.trim();
+        var cpf = cpfInput.inputmask.unmaskedvalue();
+
+        if (nome == "" || isNaN(cpf)) {
+            alterarModal("ATENÇÂO","Preencha algum campo para realizar a pesquisa.");
+            alterarCorModal("bg-warning","bg-light");
+
+            const modal = new bootstrap.Modal(document.getElementById("mainmodal"));
+            modal.show();
+            return;
+        }
+
+        if (nome == "") {
+            var func = await getFuncionarioByCPF(cpf);
+            preencherTabelaFunc([func]);
+        }else if (cpf == ""){
+            var func = await getFuncionarioByName(nome);
+            preencherTabelaFunc(func);
+        }else{
+            alterarModal("ATENÇÂO","Preencha apenas 1 dos campos por vez.");
+            alterarCorModal("bg-warning","bg-light");
+
+            const modal = new bootstrap.Modal(document.getElementById("mainmodal"));
+            modal.show();
+            document.querySelector("form").reset();
+        }
+
+    });
+
+    document.getElementById("btnLimpar").addEventListener("click",async function () {
+        getAllFuncionarios();
+    })
 
  }
 window.addEventListener("load", function () {
